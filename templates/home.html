@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +10,10 @@
     <title>home page</title>
 
 </head>
-<body style="background-image:url('../../OOD/media/background.jpg'); padding: 20px">
+<body style="background-image:url('../static/media/background.jpg'); padding: 20px">
 <div id="header">
     <form action="/search" method="post">
-        <input type="text" name="text-search" placeholder="Search..">
+        <input id="search_input" type="text" name="product_search" placeholder="Search..">
         <input type="submit" style="display: none">
     </form>
 </div>
@@ -21,7 +22,7 @@
         {% for p in products %}
             <div class="product">
                 <div class="p_logo_div">
-                    <img class="p_logo" src="../../OOD/media/product.jpg">
+                    <img class="p_logo" src="../static/media/product.jpg">
                 </div>
                 <div class="p_price">
                     <div class="p_price_elements">{{ p.name }}</div>
