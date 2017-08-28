@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script type="text/javascript" src="product.js"></script>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body style="background-image: url('../../OOD/media/background.jpg')">
+<div>
+    <div id="p_img">
+        <div id="p_img_wrapper">
+            <div><img id="p_image" src="../../OOD/media/product.jpg"></div>
+        </div>
+    </div>
+    <div id="p_prop">
+        <div id="p_info" class="p_prop_elements">
+            <div id="p_details">
+                2000R<br>
+                Made in China
+            </div>
+        </div>
+        <div id="purchase_form_wrapper" class="p_prop_elements">
+            <div>
+                <button class="btn btn-success" onclick="document.getElementById('id01').style.display='block'"
+                        style="width:auto;">
+                    سفارش محصول
+                </button>
+            </div>
+
+            <div id="id01" class="modal">
+                <form class="modal-content animate" action="/">
+                    <div class="container">
+                        <label><b>Full Name</b></label>
+                        <input type="text" placeholder="Enter Name" name="name" required>
+
+                        <label><b>Address</b></label>
+                        <input type="text" placeholder="Enter Address" name="adrs" required>
+
+                        <label style="padding: 15px 15px 15px 0;"><b>Delivery Date</b></label>
+                        <input type="date" placeholder="" name="date" required>
+
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1;text-align: center">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                                class="cancelbtn">Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+    <hr>
+    <div id="p_cms_wrapper">
+        <div id="compose_p_cm">
+            <form method="post" action="">
+                <input id="p_cm_input_form" type="text" name="new_comment"
+                       placeholder="comment..."> </input>
+                <input type="submit" value="Submit" class="btn btn-success"> </input>
+            </form>
+        </div>
+        <div id="p_cms">
+            {#            {% for c in comments %}#}
+            <div>
+                <div id="p_cm">
+                    <p> {{ c.content }}</p>
+                </div>
+            </div>
+            {#            {% endfor %}#}
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
