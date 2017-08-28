@@ -23,39 +23,38 @@
         </div>
         <div id="purchase_form_wrapper" class="p_prop_elements">
             <div>
-                <button class="btn btn-success" onclick="document.getElementById('id01').style.display='block'"
+                <button id="p_order" class="btn btn-success"
+                        onclick="document.getElementById('purchase_part').style.display='block';
+                        document.getElementById('p_order').style.display='none'"
                         style="width:auto;">
                     سفارش محصول
                 </button>
             </div>
-
-            <div id="id01" class="modal">
-                <form class="modal-content animate" action="/">
-                    <div class="container">
-                        <label><b>Full Name</b></label>
-                        <input type="text" placeholder="Enter Name" name="name" required>
-
-                        <label><b>Address</b></label>
-                        <input type="text" placeholder="Enter Address" name="adrs" required>
-
-                        <label style="padding: 15px 15px 15px 0;"><b>Delivery Date</b></label>
-                        <input type="date" placeholder="" name="date" required>
-
-                        <button class="btn btn-success" type="submit">Submit</button>
-                    </div>
-
-                    <div class="container" style="background-color:#f1f1f1;text-align: center">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                class="cancelbtn">Cancel
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-
         </div>
     </div>
+
+    <div id="purchase_part" style="display: none">
+        <hr>
+        <p style="direction: rtl"><b4>سفارش محصول</b4></p>
+
+        <form id="purchase_form" action="/buy/{{ p.id }}" method="post">
+            <div class="container" style="direction: rtl">
+                <label><b>نام سفارش دهنده</b></label>
+                <input type="text" placeholder="نام" name="name" required>
+
+                <label><b>آدرس گیرنده</b></label>
+                <input type="text" placeholder="آدرس" name="address" required>
+
+                <label style="padding: 15px 15px 15px 0;"><b>تاریخ دریافت سفارش</b></label>
+                <input type="date" placeholder="" name="date" required>
+
+                <button class="btn btn-success" type="submit">ثبت نهایی سفارش</button>
+            </div>
+        </form>
+    </div>
+
     <hr>
+
     <div id="p_cms_wrapper">
         <div id="compose_p_cm">
             <form method="post" action="">
@@ -75,6 +74,9 @@
 
         </div>
     </div>
+    <hr>
+
+
 </div>
 </body>
 </html>
