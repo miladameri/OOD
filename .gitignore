@@ -1,2 +1,6 @@
 README.md
-.idea/*
+# DB
+*.sqlite3
+
+# ide
+*.idea

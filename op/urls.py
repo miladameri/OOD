@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf import settings
 
+from django.conf.urls import url
+from op.ood.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^home/', Home.as_View())
 ]
