@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="product.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script type="text/javascript" src="product.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Product</title>
 </head>
@@ -37,7 +37,7 @@
         <hr>
         <p style="direction: rtl"><b4>سفارش محصول</b4></p>
 
-        <form id="purchase_form" action="/buy/{{ p.id }}" method="post">
+        <form id="purchase_form" action="" method="post">
             <div class="container" style="direction: rtl">
                 <label><b>نام سفارش دهنده</b></label>
                 <input type="text" placeholder="نام" name="name" required>
@@ -46,9 +46,9 @@
                 <input type="text" placeholder="آدرس" name="address" required>
 
                 <label style="padding: 15px 15px 15px 0;"><b>تاریخ دریافت سفارش</b></label>
-                <input type="date" placeholder="" name="date" required>
+                <input type="date" name="date" required>
 
-                <button class="btn btn-success" type="submit">ثبت نهایی سفارش</button>
+                <button class="btn btn-success" type="submit" onclick="get_selected_product_id()">ثبت نهایی سفارش</button>
             </div>
         </form>
     </div>

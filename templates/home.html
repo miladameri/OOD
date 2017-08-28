@@ -11,8 +11,9 @@
 </head>
 <body style="background-image:url('../../OOD/media/background.jpg'); padding: 20px">
 <div id="header">
-    <form>
-        <input type="text" name="search" placeholder="Search..">
+    <form action="/search" method="post">
+        <input type="text" name="text-search" placeholder="Search..">
+        <input type="submit" style="display: none">
     </form>
 </div>
 <div id="body">
