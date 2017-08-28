@@ -2,20 +2,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <script type="text/javascript" src="{% static "jquery/jquery-1.10.2.min.js"%}"></script>
-    <script type="text/javascript" src="{% static "js/home.js"%}"></script>
+    <script type="text/javascript" src="{% static "jquery/jquery-1.10.2.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/home1.js" %}"></script>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <meta charset="UTF-8">
     <title>home page</title>
 
 </head>
-<body style="background-image:url('{% static "media/background.jpg"%}'); padding: 20px">
+<body style="background-image:url('{% static "media/background.jpg" %}');padding: 20px">
 <div id="header">
-    <form name="searchajaxform" id="searchajaxform" action="" method="post">
+    <form id="product_search" action="/home" method="get">
         {% csrf_token %}
-        <input id="search_input" type="text" name="product_search" placeholder="Search..">
-        <input type="submit" style="display: none">
+        <input id="search_input" type="text" name="product_search" placeholder="Search...">
+        <input type="submit" style="display: inline-block"
+               onclick="product_search_func(document.getElementById('search_input').valueOf())">
     </form>
 </div>
 <div id="body">
