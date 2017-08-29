@@ -6,7 +6,7 @@
     <script type="text/javascript" src="{% static "js/home1.js" %}"></script>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <meta charset="UTF-8">
-    <title>home page</title>
+    <title>Home Page</title>
 
 </head>
 <body style="background-image:url('{% static "media/background.jpg" %}');padding: 20px">
@@ -20,18 +20,35 @@
 </div>
 <div id="body">
     <div id="body1">
-        {% for p in products %}
-            <div class="product">
-                <div class="p_logo_div">
-                    <img class="p_logo" src="../static/media/product.jpg">
+        {% if product_search_result %}
+            {% for p in product_search_result %}
+                <div class="product">
+                    <div class="p_logo_div">
+                        <img class="p_logo" src="../static/media/product.jpg">
+                    </div>
+                    <div class="p_price">
+                        <div class="p_price_elements">{{ p.name }}</div>
+                        <div class="p_price_elements">{{ p.price }}</div>
+                        <div class="p_price_elements"><a href="/products/{{ p.id }}" id="purchase_link">سفارش کالا</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="p_price">
-                    <div class="p_price_elements">{{ p.name }}</div>
-                    <div class="p_price_elements">{{ p.price }}</div>
-                    <div class="p_price_elements"><a href="/products/{{ p.id }}" id="purchase_link">Purchase</a></div>
+            {% endfor %}
+        {% else %}
+            {% for p in products %}
+                <div class="product">
+                    <div class="p_logo_div">
+                        <img class="p_logo" src="../static/media/product.jpg">
+                    </div>
+                    <div class="p_price">
+                        <div class="p_price_elements">{{ p.name }}</div>
+                        <div class="p_price_elements">{{ p.price }}</div>
+                        <div class="p_price_elements"><a href="/products/{{ p.id }}" id="purchase_link">سفارش کالا</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
 
 
     </div>

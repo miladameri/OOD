@@ -12,14 +12,15 @@
 }
 
 #p_cm_input_form {
-    height: 40px;
     width: 90%;
-    /*background-color: azure;*/
-    border-radius: 5px
+    height: 90px;
+    border-radius: 10px;
 }
 
 #p_cms_wrapper {
-    /*background-color: blueviolet;*/
+    text-align: center;
+    padding-right: 60px;
+    padding-left: 60px;
 }
 
 #p_details {
