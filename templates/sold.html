@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href={% static 'css/sold.css' %}>
+    <script type="text/javascript" src={% static "js/sold.js" %}></script>
+    <meta charset="UTF-8">
+    <title>Sold Products</title>
+</head>
+<body style="background-image:url('{% static "media/background.jpg" %}');padding: 20px;font-family: 'B Nazanin'">
+<div id="sold-hdr"></div>
+<div id="sold-body">
+    <div id="sold-inner-body">
+        {% for p in sold_products %}
+            <div class="product">
+                <div class="p_logo_div">
+                    <img class="p_logo" src="../static/media/product.png">
+                </div>
+                <div class="p_price">
+                    <div class="p_price_elements">{{ p.name }}</div>
+                    <div class="p_price_elements">{{ p.price }}</div>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+</div>
+</div>
+</body>
+</html>

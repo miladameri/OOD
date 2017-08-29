@@ -13,11 +13,10 @@
 <div id="header">
     <form id="product_search" action={% url "home" %} method="get">
         <input id="search_input" type="text" name="product_search" placeholder="Search...">
-        <input type="submit" style="display: inline-block"
-               onclick="product_search_func(document.getElementById('search_input').valueOf())">
+        <input type="submit" style="display: inline-block">
     </form>
 </div>
-<div id="body">
+<div>
     <div id="body1">
         {% if product_search_result %}
             {% for p in product_search_result %}
