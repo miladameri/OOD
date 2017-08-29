@@ -20,7 +20,14 @@ class Home(View):
 class Products(View):
     def get(self, request, id):
         p = PCatalogue.get(id)
-        return render(request, 'product.html', context={'id': id, 'name': p.name, 'price': p.price})
+        comments=[]
+        c = Comment.objects.filter(product=Product.objects.get(id=id))
+        print(c)
+        for item in c:
+            print(item.text)
+            comments.append(item.text)
+
+        return render(request, 'product.html', context={'id': id, 'name': p.name, 'price': p.price, 'comments':comments})
 
 
 class Buy(View):
