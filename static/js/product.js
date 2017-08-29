@@ -8,12 +8,12 @@ function update_rate_input(val) {
 
 function send_comment() {
     $.ajax({
-        url: window.myviewURL,
+        url: $('#comment_url').val(),
         type: 'post', // performing a POST request
         data: {
-            comment: $('#p_cm_input_form').val() // will be accessible in $_POST['data1']
+            comment: $('#p_cm_input_form').val(), // will be accessible in $_POST['data1']
+            id: $('#p_id').val()
         },
-        dataType: 'text',
         success: function (data) {
             // etc...
             console.log(data);

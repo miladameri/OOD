@@ -44,6 +44,8 @@
         <p id="purchase_part_hdr">
             <b4>سفارش محصول</b4>
         </p>
+        <p id="p_id" style="display: none">id</p>
+        <p id="comment_url" style="display: none">{% url 'comment' %}</p>
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
             <div class="container" style="direction: rtl;padding-left: 43px">
