@@ -51,24 +51,45 @@
         <p id="p_id" style="display: none">{{ id }}</p>
         <p id="comment_url" style="display: none">{% url 'comment' %}</p>
         <p id="csrf" style="display: none">{% csrf_token %}</p>
-        <p id="rate_url" style="display: none">{% url 'rates' %}</p>
+        {#        <p id="rate_url" style="display: none">{% url 'rates' %}</p>#}
 
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
-            <div class="container" style="direction: rtl;padding-left: 43px">
+            <div class="container " style="direction: rtl;padding-left: 43px">
                 <label><b>نام سفارش دهنده</b></label>
-                <input type="text" placeholder="نام" name="name" required>
+                <input class="purchase_form_field" type="text" placeholder="نام" name="name" required>
 
                 <label><b>آدرس گیرنده</b></label>
-                <input type="text" placeholder="آدرس" name="address" required>
+                <input class="purchase_form_field" type="text" placeholder="آدرس" name="address" required>
 
                 <label style="padding: 15px 15px 15px 0;"><b>تاریخ دریافت سفارش</b></label>
-                <input type="date" name="date" style="display: block;border-radius: 5px" required>
+                <input class="purchase_form_field" type="date" name="date" style="display: block;border-radius: 5px" required>
 
-                <button id="submit-purchase-btn" class="btn btn-success" type="submit">ثبت نهایی سفارش
+                <button id="submit-purchase-btn" onclick="send_purchase_order()" class="btn btn-success" type="submit">ثبت نهایی سفارش
                 </button>
             </div>
         </form>
+
+        <!-- purchase modal trigger-->
+        <button id="purchase_modal_trigger_btn" type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                data-target="#purchaseModal"
+                style="display: none"></button>
+        <!--purchase modal -->
+        <div class="modal fade" id="purchaseModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!--purchase  Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="rate_modal_msg" style="text-align: center;direction: rtl">سفارش شما با موفقیت ثبت شد.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div id="p_cms_wrapper" class="">
@@ -77,33 +98,75 @@
         </p>
         <div id="compose_p_cm" class="">
             <div>
-                <input type="submit" value="ثبت نظر" class="btn btn-success" onclick="send_comment()"> </input>
+                <input type="button" value="ثبت نظر" class="btn btn-success"
+                       onclick="send_comment()">
                 <input id="p_cm_input_form" type="text" name="new_comment"
                        placeholder="نظر خود را وارد کنید..." style="direction: rtl"> </input>
             </div>
-        </div>
-        <div id="rating_part" style="padding-right: 102px;">
-            <div style="padding-left: 900px">
-                <input type="submit" value="ثبت امتیاز" class="btn btn-success" onclick="send_rate()"> </input>
-                <p id="rate_input" style="margin: 20px; display: inline-block"></p>
-                <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block"
-                       onchange="update_rate_input(this.value);">
-            </div>
-        </div>
-        <div id="p_cms">
-            {% for c in comments %}
-                <div>
-                    <div id="p_cm">
-                        <p> {{ c }}</p>
+            <!-- comment modal trigger-->
+            <button id="cm_modal_trigger_btn" type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                    data-target="#myModal"
+                    style="display: none"></button>
+            <!-- comment modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!--comment Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p id="comment_modal_msg" style="text-align: center;direction: rtl">نظر شما ثبت شد.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                        </div>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
 
-    <hr>
+    <div id="rating_part" style="padding-right: 102px;">
+        <div style="padding-left: 900px">
+            <input type="submit" value="ثبت امتیاز" class="btn btn-success"
+                   onclick="send_rate()"> </input>
+            <p id="rate_input" style="margin: 20px; display: inline-block"></p>
+            <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block"
+                   onchange="update_rate_input(this.value);">
+        </div>
 
+        <!-- rate modal trigger-->
+        <button id="rate_modal_trigger_btn" type="button" class="btn btn-info btn-lg" data-toggle="modal"
+                data-target="#rateModal"
+                style="display: none"></button>
+        <!--rate modal -->
+        <div class="modal fade" id="rateModal" role="dialog">
+            <div class="modal-dialog">
 
+                <!--rate  Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p id="rate_modal_msg" style="text-align: center;direction: rtl">امتیاز شما ثبت شد.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="p_cms">
+    {% for c in comments %}
+        <div>
+            <div id="p_cm">
+                <p> {{ c }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+<hr>
 </div>
 </body>
 </html>

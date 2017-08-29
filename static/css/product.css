@@ -36,14 +36,6 @@
     height: 25%;
 }
 
-#p_cm {
-
-}
-
-#p_cms {
-    /*height: 300px;*/
-}
-
 #p_image {
     width: 50%;
     height: auto;
@@ -67,18 +59,13 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 10px;
-    /*font-family: "B Nazanin";*/
     margin: 8px 0 20px;
 }
 
 label {
-    /*font-family: "B Nazanin";*/
     font-size: larger;
 }
 
-input[type=submit] {
-    /*font-family: "B Nazanin";*/
-}
 
 button {
     background-color: #4CAF50;
@@ -178,7 +165,6 @@ span.psw {
     width: 20%;
     display: block;
     float: left;
-    /*font-family: "B Nazanin";*/
 }
 
 #purchase_part_hdr {
