@@ -1,8 +1,3 @@
-from django.shortcuts import render
-import urllib
-
-from django.http.response import HttpResponseNotFound
-from django.forms.models import model_to_dict
 
 from django.views.generic import View
 from django.shortcuts import render, redirect
@@ -23,6 +18,9 @@ class Products(View):
     def get(self, request, id):
         return render(request,'product.html', context={'id': id})
 
+class Buy(View):
+    def post(self, request, id):
+        print(request)
 
 class PCatalogue:
     @staticmethod
@@ -43,3 +41,12 @@ class PCatalogue:
             list.append(i)
         return list
 
+class OrderCatalogue:
+    @staticmethod
+    def create(s):
+        list = []
+        products = Product.objects.filter(name__contains=s)
+        for item in products:
+            i = {'name': item.name, 'id': item.id, 'price': item.price}
+            list.append(i)
+        return list

@@ -13,7 +13,8 @@
 <div id="header">
     <form id="product_search" action={% url "home" %} method="get">
         <input id="search_input" type="text" name="product_search" placeholder="Search...">
-        <input type="submit" style="display: none">
+        <input type="submit" style="display: inline-block"
+               onclick="product_search_func(document.getElementById('search_input').valueOf())">
     </form>
 </div>
 <div id="body">
