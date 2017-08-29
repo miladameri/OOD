@@ -1,6 +1,37 @@
 /**
  * Created by Farzane on 08/28/2017.
  */
+
+// target element
+var el = document.querySelector('#rating_part');
+
+// current rating, or initial rating
+var currentRating = 0;
+
+// max rating, i.e. number of stars you want
+var maxRating = 5;
+
+// callback to run after setting the rating
+var callback = function (rating) {
+    alert(rating);
+};
+
+// rating instance
+var myRating = rating(el, currentRating, maxRating, callback);
+
+// sets rating and runs callback
+myRating.setRating(3);
+
+// sets rating and runs callback
+myRating.setRating(3, true);
+
+// sets rating and doesn't run callback
+myRating.setRating(3, false);
+
+// gets the rating
+myRating.getRating();
+
+
 // Get the modal
 // var modal = document.getElementById('id01');
 //

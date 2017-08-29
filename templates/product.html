@@ -5,7 +5,7 @@
     <link rel="stylesheet" href={% static "css/product.css" %}>
     <link rel="stylesheet" href={% static "bower_components/five-star-rating/css/rating.min.css" %}>
     <script type="text/javascript" src={% static "js/product.js" %}></script>
-{#    <script type="text/javascript" src={% static "bower_components/five-star-rating/" %}></script>#}
+    <script type="text/javascript" src={% static "bower_components/five-star-rating/js/dist/rating.min.js" %}></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Product</title>
@@ -32,6 +32,9 @@
                     سفارش محصول
                 </button>
             </div>
+        </div>
+        <div class="rating" id="rating_part" >
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
         </div>
     </div>
 
