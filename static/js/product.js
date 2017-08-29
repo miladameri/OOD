@@ -7,15 +7,16 @@ function update_rate_input(val) {
 }
 
 function send_comment() {
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
     $.ajax({
         url: $('#comment_url').val(),
-        type: 'post', // performing a POST request
+        type: 'post',
         data: {
+            CSRF: csrftoken,
             comment: $('#p_cm_input_form').val(), // will be accessible in $_POST['data1']
             id: $('#p_id').val()
         },
         success: function (data) {
-            // etc...
             console.log(data);
         }
     });
