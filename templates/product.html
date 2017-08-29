@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Product</title>
 </head>
-<body style="background-image: url('../static/media/background.jpg')">
+<body style="background-image: url('../static/media/background.jpg');font-family: 'B Nazanin'">
 <div>
     <div id="p_img">
         <div id="p_img_wrapper">
@@ -27,19 +27,20 @@
                 <button id="p_order" class="btn btn-success"
                         onclick="document.getElementById('purchase_part').style.display='block';
                         document.getElementById('p_order').style.display='none'"
-                        style="width:auto;">
+                        style="width:auto;font-family: 'B Nazanin'">
                     سفارش محصول
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="purchase_part" style="display: none">
-        <hr>
-        <p style="direction: rtl"><b4>سفارش محصول</b4></p>
+    <div id="purchase_part" style="display: none;border-top: 5px double gray; border-bottom: 5px double gray">
+        <p id="purchase_part_hdr">
+            <b4>سفارش محصول</b4>
+        </p>
 
         <form id="purchase_form" action="/buy/{{ id }}" method="post">
-            <div class="container" style="direction: rtl">
+            <div class="container" style="direction: rtl;padding-left: 43px">
                 <label><b>نام سفارش دهنده</b></label>
                 <input type="text" placeholder="نام" name="name" required>
 
@@ -47,21 +48,23 @@
                 <input type="text" placeholder="آدرس" name="address" required>
 
                 <label style="padding: 15px 15px 15px 0;"><b>تاریخ دریافت سفارش</b></label>
-                <input type="date" name="date" required>
+                <input type="date" name="date" style="display: block;border-radius: 5px" required>
 
-                <button class="btn btn-success" type="submit">ثبت نهایی سفارش</button>
+                <button id="submit-purchase-btn" class="btn btn-success" type="submit">ثبت نهایی سفارش
+                </button>
             </div>
         </form>
     </div>
 
-    <hr>
-
     <div id="p_cms_wrapper">
+        <p id="comments_part_hdr">
+            <b4>نظرات کاربران</b4>
+        </p>
         <div id="compose_p_cm">
             <form method="post" action="">
+                <input type="submit" value="ثبت نظر" class="btn btn-success"> </input>
                 <input id="p_cm_input_form" type="text" name="new_comment"
-                       placeholder="comment..."> </input>
-                <input type="submit" value="Submit" class="btn btn-success"> </input>
+                       placeholder="نظر خود را وارد کنید..." style="direction: rtl"> </input>
             </form>
         </div>
         <div id="p_cms">
