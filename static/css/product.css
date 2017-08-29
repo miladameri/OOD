@@ -45,7 +45,7 @@
 }
 
 #p_image {
-    width: 55%;
+    width: 50%;
     height: auto;
     border-radius: 5%;
     padding: 50px 20px 20px;
@@ -248,4 +248,15 @@ input[type='range']::-webkit-slider-thumb {
     border: 1px solid #CECECE;
     height: 15px;
     width: 15px;
+}
+
+.p_det_label{
+    padding-left: 15px;
+}
+
+.p_det_row{
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: larger;
 }
