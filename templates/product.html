@@ -4,10 +4,12 @@
 <head>
     <link rel="stylesheet" href={% static "css/product.css" %}>
     <link rel="stylesheet" href={% static "bower_components/five-star-rating/css/rating.min.css" %}>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
     <script type="text/javascript" src={% static "js/product.js" %}></script>
     <script type="text/javascript" src={% static "bower_components/five-star-rating/js/dist/rating.min.js" %}></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <meta charset="UTF-8">
     <title>Product</title>
 </head>
@@ -15,7 +17,7 @@
 <div>
     <div id="p_img">
         <div id="p_img_wrapper">
-            <div><img id="p_image" src="../static/media/product.jpg"></div>
+            <div><img id="p_image" src="../static/media/product.png"></div>
         </div>
     </div>
     <div id="p_prop">
@@ -39,10 +41,10 @@
         <p id="purchase_part_hdr">
             <b4>سفارش محصول</b4>
         </p>
-        <p id="p_id" style="display: none">id</p>
+        <p id="p_id" style="display: none">{{ id }}</p>
         <p id="comment_url" style="display: none">{% url 'comment' %}</p>
         <p id="csrf" style="display: none">{% csrf_token %}</p>
-        {#        <p id="rate_url" style="display: none">{% url 'rates' %}</p>#}
+        <p id="rate_url" style="display: none">{% url 'rates' %}</p>
 
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
@@ -62,15 +64,23 @@
         </form>
     </div>
 
-    <div id="p_cms_wrapper">
-        <p id="comments_part_hdr">
+    <div id="p_cms_wrapper" class="">
+        <p id="comments_part_hdr" class="col-md-12">
             <b4>نظرات کاربران</b4>
         </p>
-        <div id="compose_p_cm">
+        <div id="compose_p_cm" class="">
             <div>
                 <input type="submit" value="ثبت نظر" class="btn btn-success" onclick="send_comment()"> </input>
                 <input id="p_cm_input_form" type="text" name="new_comment"
                        placeholder="نظر خود را وارد کنید..." style="direction: rtl"> </input>
+            </div>
+        </div>
+        <div id="rating_part" style="padding-right: 102px;">
+            <div style="padding-left: 900px">
+                <input type="submit" value="ثبت امتیاز" class="btn btn-success" onclick="send_rate()"> </input>
+                <p id="rate_input" style="margin: 20px; display: inline-block"></p>
+                <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block"
+                       onchange="update_rate_input(this.value);">
             </div>
         </div>
         <div id="p_cms">
@@ -81,20 +91,9 @@
                     </div>
                 </div>
             {% endfor %}
-
         </div>
     </div>
-    <div id="rating_part" style="padding-right: 102px;">
-        <div style="padding-left: 900px">
-            <input type="submit" value="ثبت امتیاز" class="btn btn-success" onclick="send_rate()"> </input>
-            <p id="rate_input" style="margin: 20px; display: inline-block"></p>
-            <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block"
-                   onchange="update_rate_input(this.value);">
 
-
-
-        </div>
-    </div>
     <hr>
 
 

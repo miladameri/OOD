@@ -38,7 +38,7 @@ function send_comment() {
         type: 'post',
         data: {
             comment: $('#p_cm_input_form').val(),
-            id: $('#p_id').val()
+            id: $('#p_id').text()
         },
         success: function (data) {
             console.log(data);
