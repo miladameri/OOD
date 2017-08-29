@@ -1,0 +1,36 @@
+.product {
+    height: 200px;
+    width: 10%;
+    border: 20px;
+    padding: 10px;
+    display: inline-grid;
+    margin: 5px;
+    background-color: darkgrey;
+    border-radius: 10px;
+}
+
+.p_logo_div {
+    text-align: center;
+}
+
+.p_price {
+    text-align: center;
+}
+
+.p_price_elements {
+    padding: 5px;
+}
+
+.p_logo {
+    height: 100px;
+    width: 80px;
+    padding: 5px;
+}
+
+.p_logo_div {
+    text-align: center;
+}
+
+#sold-hdr {
+    height: 50px;
+}
