@@ -41,6 +41,8 @@
         </p>
         <p id="p_id" style="display: none">id</p>
         <p id="comment_url" style="display: none">{% url 'comment' %}</p>
+        <p id="csrf" style="display: none">{% csrf_token %}</p>
+
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
             <div class="container" style="direction: rtl;padding-left: 43px">

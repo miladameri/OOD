@@ -2,16 +2,42 @@
  * Created by Farzane on 08/28/2017.
  */
 
+$(document).ready(function(){
+    function getCookie(c_name) {
+        if(document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=");
+            if(c_start != -1) {
+                c_start = c_start + c_name.length + 1;
+                c_end = document.cookie.indexOf(";", c_start);
+                if(c_end == -1) c_end = document.cookie.length;
+                return unescape(document.cookie.substring(c_start,c_end));
+            }
+        }
+        return "";
+    }
+
+    $(function () {
+        $.ajaxSetup({
+            headers: {
+                "X-CSRFToken": getCookie("csrftoken")
+            }
+        });
+    });
+});
+
+
 function update_rate_input(val) {
     document.getElementById('rate_input').innerHTML = val;
 }
 
 function send_comment() {
+
+    console.log($('#comment_url').text());
     $.ajax({
-        url: $('#comment_url').val(),
+        url: $('#comment_url').text(),
         type: 'post',
         data: {
-            csrfmiddlewaretoken: {{ csrf_token}},
+            //csrfmiddlewaretoken: $('#csrf').val(),
             comment: $('#p_cm_input_form').val(), // will be accessible in $_POST['data1']
             id: $('#p_id').val()
         },

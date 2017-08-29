@@ -30,7 +30,8 @@ class Buy(View):
         return redirect(to='home')
 
 class Comments(View):
-    def post(self, request, id):
+    def post(self, request):
+        print('hi')
         print(request.POST)
         return HttpResponse('done')
 
