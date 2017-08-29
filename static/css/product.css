@@ -41,7 +41,7 @@
 }
 
 #p_cms {
-    height: 300px;
+    /*height: 300px;*/
 }
 
 #p_image {
@@ -226,4 +226,26 @@ span.psw {
 .rating > span:hover ~ span:before {
     content: "\2605";
     position: absolute;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-apperance: none;
+    border-radius: 6px;
+    height: 6px;
+    background-image: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(0.15, #94A14E),
+            color-stop(0.15, #C5C5C5)
+    );
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-color: #E9E9E9;
+    border: 1px solid #CECECE;
+    height: 15px;
+    width: 15px;
 }

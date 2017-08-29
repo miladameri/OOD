@@ -2,34 +2,69 @@
  * Created by Farzane on 08/28/2017.
  */
 
-// target element
-var el = document.querySelector('#rating_part');
+function update_rate_input(val) {
+    document.getElementById('rate_input').innerHTML = val;
+}
 
-// current rating, or initial rating
-var currentRating = 0;
+function send_comment() {
+    $.ajax({
+        url: window.myviewURL,
+        type: 'post', // performing a POST request
+        data: {
+            comment: $('#p_cm_input_form').val() // will be accessible in $_POST['data1']
+        },
+        dataType: 'text',
+        success: function (data) {
+            // etc...
+            console.log(data);
+        }
+    });
+}
 
-// max rating, i.e. number of stars you want
-var maxRating = 5;
+$(document).ready(function () {
 
-// callback to run after setting the rating
-var callback = function (rating) {
-    alert(rating);
-};
+    $('input[type="range"]').change(function () {
+        var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+        $(this).css('background-image',
+            '-webkit-gradient(linear, left top, right top, '
+            + 'color-stop(' + val + ', #94A14E), '
+            + 'color-stop(' + val + ', #C5C5C5)'
+            + ')'
+        );
+    });
 
-// rating instance
-var myRating = rating(el, currentRating, maxRating, callback);
 
-// sets rating and runs callback
-myRating.setRating(3);
+});
 
-// sets rating and runs callback
-myRating.setRating(3, true);
 
-// sets rating and doesn't run callback
-myRating.setRating(3, false);
-
-// gets the rating
-myRating.getRating();
+// // target element
+// var el = document.querySelector('#rating_part');
+//
+// // current rating, or initial rating
+// var currentRating = 0;
+//
+// // max rating, i.e. number of stars you want
+// var maxRating = 5;
+//
+// // callback to run after setting the rating
+// var callback = function (rating) {
+//     alert(rating);
+// };
+//
+// // rating instance
+// var myRating = rating(el, currentRating, maxRating, callback);
+//
+// // sets rating and runs callback
+// myRating.setRating(3);
+//
+// // sets rating and runs callback
+// myRating.setRating(3, true);
+//
+// // sets rating and doesn't run callback
+// myRating.setRating(3, false);
+//
+// // gets the rating
+// myRating.getRating();
 
 
 // Get the modal
