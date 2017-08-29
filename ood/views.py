@@ -29,6 +29,10 @@ class Buy(View):
         print(request.POST['date'])
         return redirect(to='home')
 
+class Comments(View):
+    def post(self, request, id):
+        print(request.POST)
+        return HttpResponse('done')
 
 class PCatalogue:
 

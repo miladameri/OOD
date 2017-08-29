@@ -33,3 +33,13 @@ class Order(models.Model):
     customer = models.ForeignKey('Customer')
     address = models.CharField(max_length=255)
     ttr = models.DateField(default=datetime.datetime.now())
+
+class Comment(models.Model):
+    product = models.ForeignKey('Product')
+    customer = models.ForeignKey('Customer')
+    text = models.TextField()
+
+class Rating(models.Model):
+    product = models.ForeignKey('Product')
+    customer = models.ForeignKey('Customer')
+    rate = models.IntegerField()
