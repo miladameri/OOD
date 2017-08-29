@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% csrf_token %}
     <link rel="stylesheet" href={% static "css/product.css" %}>
     <link rel="stylesheet" href={% static "bower_components/five-star-rating/css/rating.min.css" %}>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -41,7 +40,7 @@
             <b4>سفارش محصول</b4>
         </p>
         <p id="p_id" style="display: none">id</p>
-{#        <p id="comment_url" style="display: none">{% url 'comment' %}</p>#}
+        <p id="comment_url" style="display: none">{% url 'comment' %}</p>
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
             <div class="container" style="direction: rtl;padding-left: 43px">
@@ -82,13 +81,15 @@
 
         </div>
     </div>
-    <div id="rating_part">
+    <div id="rating_part" style="    direction: rtl;
+    padding-right: 102px;">
         {#            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>#}
-        <form method="get" id="rating_form" action="">#TODO
-            <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block" onchange="update_rate_input(this.value);">
-{#            <input type="text" id="rate_input" value="">#}
+        <div>
+
+            <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block"
+                   onchange="update_rate_input(this.value);">
             <p id="rate_input" style="margin: 20px; display: inline-block"></p>
-        </form>
+        </div>
     </div>
     <hr>
 
