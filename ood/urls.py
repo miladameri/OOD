@@ -20,5 +20,6 @@ from django.conf.urls.static import static
 from .views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home/', Home.as_view(), name='home')
+    url(r'^home/', Home.as_view(), name='home'),
+    url(r'^products/(?P<id>[\w]*)', Products.as_view(), name='product')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
