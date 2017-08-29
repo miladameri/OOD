@@ -22,7 +22,6 @@ class Products(View):
         p = PCatalogue.get(id)
         comments=[]
         c = Comment.objects.filter(product=Product.objects.get(id=id))
-        print(c)
         for item in c:
             print(item.text)
             comments.append(item.text)
@@ -36,11 +35,22 @@ class Buy(View):
         print(request.POST['date'])
         return redirect(to='home')
 
+
 class Comments(View):
     def post(self, request):
         print('hi')
         print(request.POST)
+        print(request.POST['comment'])
+        print(request.POST['id'])
         return HttpResponse('done')
+
+    @staticmethod
+    def create(id, name, address, date):
+        product = Product.objects.get(id=id)
+        customer = Customer.objects.get(username='miladameri')
+        order = Order.objects.create(product=product,customer=customer,address=address,ttr=date)
+        order.save()
+        # return list
 
 class PCatalogue:
 
