@@ -4,7 +4,8 @@
 <head>
     <link rel="stylesheet" href={% static "css/product.css" %}>
     <link rel="stylesheet" href={% static "bower_components/five-star-rating/css/rating.min.css" %}>
-    <script type="text/javascript" src="../static/js/product.js"></script>
+    <script type="text/javascript" src={% static "js/product.js" %}></script>
+{#    <script type="text/javascript" src={% static "bower_components/five-star-rating/" %}></script>#}
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Product</title>
@@ -38,8 +39,7 @@
         <p id="purchase_part_hdr">
             <b4>سفارش محصول</b4>
         </p>
-
-        <form id="purchase_form" action={% url "/buy/{{ id }}" %} method="post">
+        <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
             <div class="container" style="direction: rtl;padding-left: 43px">
                 <label><b>نام سفارش دهنده</b></label>
