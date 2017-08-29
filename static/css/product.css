@@ -16,8 +16,8 @@
 }
 
 #p_cms_wrapper {
-    text-align: center;
-    padding-right: 60px;
+    /*text-align: center;*/
+    padding-right: 10px;
     padding-left: 60px;
 }
 
@@ -67,17 +67,17 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 10px;
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
     margin: 8px 0 20px;
 }
 
 label {
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
     font-size: larger;
 }
 
 input[type=submit] {
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
 }
 
 button {
@@ -178,12 +178,11 @@ span.psw {
     width: 20%;
     display: block;
     float: left;
-    font-family: "B Nazanin";
+    /*font-family: "B Nazanin";*/
 }
 
 #purchase_part_hdr {
     direction: rtl;
-    font-family: 'B Nazanin';
     font-size: x-large;
     padding-right: 50px;
     padding-top: 20px
@@ -191,6 +190,7 @@ span.psw {
 
 #comments_part_hdr {
     direction: rtl;
-    /*font-family: 'B Nazanin';*/
     font-size: x-large;
+    padding-right: 50px;
+    padding-top: 20px
 }

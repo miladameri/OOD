@@ -22,3 +22,8 @@
 //     console.log("hii  "+document.getElementById("purchase_form").action);
 // }
 //
+
+function on_product_order() {
+    document.getElementById('purchase_part').style.display = 'block';
+    document.getElementById('p_order').style.display = 'none'
+}

@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../static/css/product.css">
+    <link rel="stylesheet" href={% static "css/product.css" %}>
+    <link rel="stylesheet" href={% static "bower_components/five-star-rating/css/rating.min.css" %}>
     <script type="text/javascript" src="../static/js/product.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta charset="UTF-8">
@@ -25,9 +26,8 @@
         <div id="purchase_form_wrapper" class="p_prop_elements">
             <div>
                 <button id="p_order" class="btn btn-success"
-                        onclick="document.getElementById('purchase_part').style.display='block';
-                        document.getElementById('p_order').style.display='none'"
-                        style="width:auto;font-family: 'B Nazanin'">
+                        onclick="on_product_order()"
+                        style="width:auto;">
                     سفارش محصول
                 </button>
             </div>
@@ -39,7 +39,8 @@
             <b4>سفارش محصول</b4>
         </p>
 
-        <form id="purchase_form" action="/buy/{{ id }}" method="post">
+        <form id="purchase_form" action={% url "/buy/{{ id }}" %} method="post">
+            {% csrf_token %}
             <div class="container" style="direction: rtl;padding-left: 43px">
                 <label><b>نام سفارش دهنده</b></label>
                 <input type="text" placeholder="نام" name="name" required>
