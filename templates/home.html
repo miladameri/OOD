@@ -12,7 +12,6 @@
 <body style="background-image:url('{% static "media/background.jpg" %}');padding: 20px">
 <div id="header">
     <form id="product_search" action={% url "home"%} method="get">
-        {% csrf_token %}
         <input id="search_input" type="text" name="product_search" placeholder="Search...">
         <input type="submit" style="display: inline-block"
                onclick="product_search_func(document.getElementById('search_input').valueOf())">

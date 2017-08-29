@@ -1,7 +1,7 @@
-function product_search_func(searched_text) {
-    console.log("hi");
-    console.log(searched_text);
-}
+// function product_search_func(searched_text) {
+//     console.log("hi");
+//     console.log(searched_text);
+// }
 
 
 

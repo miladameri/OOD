@@ -1,7 +1,3 @@
-#body1 {
-    /*background-color: aqua;*/
-}
-
 .p_logo {
     height: 100px;
     width: 80px;
@@ -25,17 +21,14 @@
 }
 
 .p_logo_div {
-    /*background-color: red;*/
     text-align: center;
 }
 
 .p_purchase {
     text-align: center;
-    /*background-color: green;*/
 }
 
 #header {
-    /*background-color: beige;*/
     height: 50px;
 }
 
