@@ -40,17 +40,22 @@ class Comments(View):
     def post(self, request):
         print('hi')
         print(request.POST)
-        print(request.POST['comment'])
-        print(request.POST['id'])
+        print()
+        self.create(request.POST['id'], request.POST['comment'])
         return HttpResponse('done')
 
     @staticmethod
-    def create(id, name, address, date):
-        product = Product.objects.get(id=id)
+    def create(pid, comment):
+        product = Product.objects.get(id=pid)
         customer = Customer.objects.get(username='miladameri')
-        order = Order.objects.create(product=product,customer=customer,address=address,ttr=date)
-        order.save()
-        # return list
+        comment = Comment.objects.create(product=product,customer=customer,text=comment)
+        comment.save()
+
+
+class Rates(View):
+    def post(self):
+        pass
+
 
 class PCatalogue:
 
