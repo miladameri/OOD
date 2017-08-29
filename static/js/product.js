@@ -2,15 +2,15 @@
  * Created by Farzane on 08/28/2017.
  */
 
-$(document).ready(function(){
+$(document).ready(function () {
     function getCookie(c_name) {
-        if(document.cookie.length > 0) {
+        if (document.cookie.length > 0) {
             c_start = document.cookie.indexOf(c_name + "=");
-            if(c_start != -1) {
+            if (c_start != -1) {
                 c_start = c_start + c_name.length + 1;
                 c_end = document.cookie.indexOf(";", c_start);
-                if(c_end == -1) c_end = document.cookie.length;
-                return unescape(document.cookie.substring(c_start,c_end));
+                if (c_end == -1) c_end = document.cookie.length;
+                return unescape(document.cookie.substring(c_start, c_end));
             }
         }
         return "";
@@ -37,8 +37,7 @@ function send_comment() {
         url: $('#comment_url').text(),
         type: 'post',
         data: {
-            //csrfmiddlewaretoken: $('#csrf').val(),
-            comment: $('#p_cm_input_form').val(), // will be accessible in $_POST['data1']
+            comment: $('#p_cm_input_form').val(),
             id: $('#p_id').val()
         },
         success: function (data) {
@@ -46,6 +45,22 @@ function send_comment() {
         }
     });
 }
+
+function send_rate() {
+
+    $.ajax({
+        url: $('#rate_url').text(),
+        type: 'post',
+        data: {
+            rate: $('#rate_input').val(),
+            id: $('#p_id').val()
+        },
+        success: function (data) {
+            console.log(data);
+        }
+    });
+}
+
 
 $(document).ready(function () {
 
