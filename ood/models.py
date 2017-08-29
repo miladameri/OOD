@@ -9,7 +9,7 @@ class MyUser(DjangoUser):
     is_admin = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.username + ' : ' + self.name
+        return self.username
 
 class Customer(MyUser):
     address = models.CharField(max_length=255)

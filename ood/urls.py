@@ -22,6 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', Home.as_view(), name='home'),
     url(r'^products/(?P<id>[\w]*)', Products.as_view(), name='product'),
-    url(r'^buy/(?P<id>[\w]*)', Products.as_view(), name='buy')
+    url(r'^buy/(?P<id>[\w]*)', Buy.as_view(), name='buy')
 
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
