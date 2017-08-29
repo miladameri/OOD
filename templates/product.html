@@ -4,8 +4,13 @@
 <head>
     <link rel="stylesheet" href={% static "css/product.css" %}>
     <link rel="stylesheet" href={% static "bower_components/five-star-rating/css/rating.min.css" %}>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script>
+        window.myviewURL = {% url 'comment' %}
+    </script>
+
     <script type="text/javascript" src={% static "js/product.js" %}></script>
-{#    <script type="text/javascript" src={% static "bower_components/five-star-rating/" %}></script>#}
+    <script type="text/javascript" src={% static "bower_components/five-star-rating/js/dist/rating.min.js" %}></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Product</title>
@@ -39,6 +44,8 @@
         <p id="purchase_part_hdr">
             <b4>سفارش محصول</b4>
         </p>
+        <p id="p_id" style="display: none">id</p>
+        <p id="comment_url" style="display: none">{% url 'comment' %}</p>
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
             <div class="container" style="direction: rtl;padding-left: 43px">
@@ -63,21 +70,29 @@
         </p>
         <div id="compose_p_cm">
             <form method="post" action="">
-                <input type="submit" value="ثبت نظر" class="btn btn-success"> </input>
+                <input type="submit" value="ثبت نظر" class="btn btn-success" onclick="send_comment()"> </input>
                 <input id="p_cm_input_form" type="text" name="new_comment"
                        placeholder="نظر خود را وارد کنید..." style="direction: rtl"> </input>
             </form>
         </div>
         <div id="p_cms">
-            {#            {% for c in comments %}#}
-            <div>
-                <div id="p_cm">
-                    <p> {{ c.content }}</p>
+            {% for c in comments %}
+                <div>
+                    <div id="p_cm">
+                        <p> {{ c.content }}</p>
+                    </div>
                 </div>
-            </div>
-            {#            {% endfor %}#}
+            {% endfor %}
 
         </div>
+    </div>
+    <div id="rating_part">
+        {#            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>#}
+        <form method="get" id="rating_form" action="">#TODO
+            <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block" onchange="update_rate_input(this.value);">
+{#            <input type="text" id="rate_input" value="">#}
+            <p id="rate_input" style="margin: 20px; display: inline-block"></p>
+        </form>
     </div>
     <hr>
 

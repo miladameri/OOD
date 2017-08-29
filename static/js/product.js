@@ -1,6 +1,72 @@
 /**
  * Created by Farzane on 08/28/2017.
  */
+
+function update_rate_input(val) {
+    document.getElementById('rate_input').innerHTML = val;
+}
+
+function send_comment() {
+    $.ajax({
+        url: $('#comment_url').val(),
+        type: 'post', // performing a POST request
+        data: {
+            comment: $('#p_cm_input_form').val(), // will be accessible in $_POST['data1']
+            id: $('#p_id').val()
+        },
+        success: function (data) {
+            // etc...
+            console.log(data);
+        }
+    });
+}
+
+$(document).ready(function () {
+
+    $('input[type="range"]').change(function () {
+        var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+        $(this).css('background-image',
+            '-webkit-gradient(linear, left top, right top, '
+            + 'color-stop(' + val + ', #94A14E), '
+            + 'color-stop(' + val + ', #C5C5C5)'
+            + ')'
+        );
+    });
+
+
+});
+
+
+// // target element
+// var el = document.querySelector('#rating_part');
+//
+// // current rating, or initial rating
+// var currentRating = 0;
+//
+// // max rating, i.e. number of stars you want
+// var maxRating = 5;
+//
+// // callback to run after setting the rating
+// var callback = function (rating) {
+//     alert(rating);
+// };
+//
+// // rating instance
+// var myRating = rating(el, currentRating, maxRating, callback);
+//
+// // sets rating and runs callback
+// myRating.setRating(3);
+//
+// // sets rating and runs callback
+// myRating.setRating(3, true);
+//
+// // sets rating and doesn't run callback
+// myRating.setRating(3, false);
+//
+// // gets the rating
+// myRating.getRating();
+
+
 // Get the modal
 // var modal = document.getElementById('id01');
 //
