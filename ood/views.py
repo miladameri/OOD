@@ -20,7 +20,13 @@ class Home(View):
 class Products(View):
     def get(self, request, id):
         p = PCatalogue.get(id)
-        return render(request, 'product.html', context={'id': id, 'name': p.name, 'price': p.price})
+        comments=[]
+        c = Comment.objects.filter(product=Product.objects.get(id=id))
+        for item in c:
+            print(item.text)
+            comments.append(item.text)
+
+        return render(request, 'product.html', context={'id': id, 'name': p.name, 'price': p.price, 'comments':comments})
 
 
 class Buy(View):
@@ -29,11 +35,27 @@ class Buy(View):
         print(request.POST['date'])
         return redirect(to='home')
 
+
 class Comments(View):
     def post(self, request):
         print('hi')
         print(request.POST)
+        print()
+        self.create(request.POST['id'], request.POST['comment'])
         return HttpResponse('done')
+
+    @staticmethod
+    def create(pid, comment):
+        product = Product.objects.get(id=pid)
+        customer = Customer.objects.get(username='miladameri')
+        comment = Comment.objects.create(product=product,customer=customer,text=comment)
+        comment.save()
+
+
+class Rates(View):
+    def post(self):
+        pass
+
 
 class PCatalogue:
 

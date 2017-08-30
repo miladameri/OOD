@@ -6,4 +6,7 @@ admin.site.register(models.Customer)
 admin.site.register(models.Admin)
 admin.site.register(models.Product)
 admin.site.register(models.Order)
+admin.site.register(models.Comment)
+admin.site.register(models.Rating)
+
 

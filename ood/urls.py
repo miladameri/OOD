@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^home/', Home.as_view(), name='home'),
     url(r'^products/(?P<id>[\w]*)', Products.as_view(), name='product'),
     url(r'^buy/(?P<id>[\w]*)', Buy.as_view(), name='buy'),
-    url(r'^comment/', Comments.as_view(), name='comment')
+    url(r'^comment/', Comments.as_view(), name='comment'),
+    url(r'^rates/', Rates.as_view(), name='rates')
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
