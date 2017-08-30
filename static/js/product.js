@@ -53,6 +53,7 @@ function send_comment() {
 }
 
 function send_rate() {
+    console.log("send rate called");
     $.ajax({
         url: $('#rate_url').text(),
         type: 'post',
@@ -70,6 +71,12 @@ function send_rate() {
 
 
 $(document).ready(function () {
+    $('#submit_cm_btn').attr('disabled', 'disabled');
+    $('#p_cm_input_form').keyup(function () {
+        if ($(this).val() !== '') {
+            $('#submit_cm_btn').removeAttr('disabled');
+        }
+    });
 
     $('input[type="range"]').change(function () {
         var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));

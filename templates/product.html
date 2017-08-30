@@ -35,9 +35,8 @@
         </div>
         <div id="purchase_form_wrapper" class="p_prop_elements">
             <div>
-                <button id="p_order" class="btn btn-success"
-                        onclick="on_product_order()"
-                        style="width:auto;">
+                <button id="p_order_btn" class="btn btn-info"
+                        onclick="on_product_order()">
                     سفارش محصول
                 </button>
             </div>
@@ -63,9 +62,11 @@
                 <input class="purchase_form_field" type="text" placeholder="آدرس" name="address" required>
 
                 <label style="padding: 15px 15px 15px 0;"><b>تاریخ دریافت سفارش</b></label>
-                <input class="purchase_form_field" type="date" name="date" style="display: block;border-radius: 5px" required>
+                <input class="purchase_form_field" type="date" name="date" style="display: block;border-radius: 5px"
+                       required>
 
-                <button id="submit-purchase-btn" onclick="send_purchase_order()" class="btn btn-success" type="submit">ثبت نهایی سفارش
+                <button id="submit-purchase-btn" onclick="send_purchase_order()" class="btn btn-success" type="submit">
+                    ثبت نهایی سفارش
                 </button>
             </div>
         </form>
@@ -92,14 +93,15 @@
 
     </div>
 
-    <div id="p_cms_wrapper" class="">
+    <div id="p_cms_wrapper">
         <p id="comments_part_hdr" class="col-md-12">
             <b4>نظرات کاربران</b4>
         </p>
         <div id="compose_p_cm" class="">
             <div>
-                <input type="button" value="ثبت نظر" class="btn btn-success"
-                       onclick="send_comment()">
+                <button id="submit_cm_btn" class="btn btn-success" style="width: auto"
+                        onclick="send_comment()" disabled>ثبت نظر
+                </button>
                 <input id="p_cm_input_form" type="text" name="new_comment"
                        placeholder="نظر خود را وارد کنید..." style="direction: rtl"> </input>
             </div>
@@ -125,11 +127,12 @@
         </div>
     </div>
 
-    <div id="rating_part" style="padding-right: 102px;">
+    <div id="rating_part">
         <div style="padding-left: 900px">
-            <input type="submit" value="ثبت امتیاز" class="btn btn-success"
-                   onclick="send_rate()"> </input>
-            <p id="rate_input" style="margin: 20px; display: inline-block"></p>
+            <button id="submit_rate_btn" class="btn btn-success"
+                    onclick="send_rate()" style="width: auto">ثبت امتیاز
+            </button>
+            <p id="rate_input" style="margin: 20px; display: inline-block">3</p>
             <input type="range" min="1" max="5" value="3" style="width: 150px;display: inline-block"
                    onchange="update_rate_input(this.value);">
         </div>
@@ -154,19 +157,20 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-<div id="p_cms">
-    {% for c in comments %}
-        <div>
-            <div id="p_cm">
-                <p> {{ c }}</p>
+    <div id="p_cms">
+        {% for c in comments %}
+            <div>
+                <div id="p_cm">
+                    <p class="each_cm_box"> {{ c }} </p>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+
+            <hr>
+        {% endfor %}
+    </div>
 </div>
 </div>
-<hr>
+</div>
 </div>
 </body>
 </html>

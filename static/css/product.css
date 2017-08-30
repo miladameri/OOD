@@ -7,6 +7,7 @@
 
 #p_prop {
     height: 350px;
+    border-bottom: 5px double gray;
 }
 
 #p_cm_input_form {
@@ -16,9 +17,9 @@
 }
 
 #p_cms_wrapper {
-    /*text-align: center;*/
     padding-right: 10px;
     padding-left: 60px;
+    border-top: 5px double gray;
 }
 
 #p_details {
@@ -66,7 +67,6 @@ label {
     font-size: larger;
 }
 
-
 button {
     background-color: #4CAF50;
     color: white;
@@ -81,27 +81,9 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Extra styles for the cancel button */
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-}
-
-/* Center the image and position the close button */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
 .container {
-    padding: 16px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 span.psw {
@@ -178,7 +160,8 @@ span.psw {
     direction: rtl;
     font-size: x-large;
     padding-right: 50px;
-    padding-top: 20px
+    padding-top: 20px;
+    margin-bottom: 30px;
 }
 
 .rating > span:hover:before {
@@ -236,13 +219,31 @@ input[type='range']::-webkit-slider-thumb {
     width: 15px;
 }
 
-.p_det_label{
+.p_det_label {
     padding-left: 15px;
 }
 
-.p_det_row{
+.p_det_row {
     display: block;
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: larger;
+}
+
+#p_order_btn {
+    width: auto;
+    float: right;
+}
+
+#rating_part {
+    padding-right: 102px;
+    margin-top: 20px
+}
+
+.each_cm_box {
+    margin-left: 100px;
+    margin-right: 100px;
+    direction: rtl;
+    height: 30px;
+    width: 82%;
 }
