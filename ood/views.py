@@ -23,7 +23,6 @@ class Products(View):
         comments=[]
         c = Comment.objects.filter(product=Product.objects.get(id=id))
         for item in c:
-            print(item.text)
             comments.append(item.text)
 
         return render(request, 'product.html', context={'id': id, 'name': p.name, 'price': p.price, 'comments':comments})
@@ -38,9 +37,6 @@ class Buy(View):
 
 class Comments(View):
     def post(self, request):
-        print('hi')
-        print(request.POST)
-        print()
         self.create(request.POST['id'], request.POST['comment'])
         return HttpResponse('done')
 
@@ -53,8 +49,20 @@ class Comments(View):
 
 
 class Rates(View):
-    def post(self):
-        pass
+    def post(self, request):
+        print('hi')
+        print(request.POST)
+        print()
+        self.create(request.POST['id'], request.POST['rate'])
+        return HttpResponse('done')
+
+    @staticmethod
+    def create(pid, rate):
+        print('in rates')
+        product = Product.objects.get(id=pid)
+        customer = Customer.objects.get(username='miladameri')
+        rate = Rating.objects.create(product=product, customer=customer, rate=rate)
+        rate.save()
 
 
 class PCatalogue:

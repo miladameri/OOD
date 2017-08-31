@@ -50,7 +50,7 @@
         <p id="p_id" style="display: none">{{ id }}</p>
         <p id="comment_url" style="display: none">{% url 'comment' %}</p>
         <p id="csrf" style="display: none">{% csrf_token %}</p>
-        {#        <p id="rate_url" style="display: none">{% url 'rates' %}</p>#}
+        <p id="rate_url" style="display: none">{% url 'rates' %}</p>
 
         <form id="purchase_form" action={% url 'buy' id %} method="post">
             {% csrf_token %}
