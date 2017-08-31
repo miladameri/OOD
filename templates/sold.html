@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href={% static 'css/sold.css' %}>
+    <link rel="stylesheet" href={% static "css/sold.css" %}>
     <script type="text/javascript" src={% static "js/sold.js" %}></script>
     <meta charset="UTF-8">
     <title>Sold Products</title>
 </head>
-<body style="background-image:url('{% static "media/background.jpg" %}');padding: 20px;font-family: 'B Nazanin'">
-<div id="sold-hdr"></div>
-<div id="sold-body">
+<header id="sold-hdr" style="direction: rtl;margin-bottom: 20px">
+    <p>
+    <h2 style="margin-right: 80px">لیست اقلام فروخته شده</h2>
+    </p>
+</header>
+<body style="background-image:url('../static/media/background.jpg');padding: 20px;font-family: 'B Nazanin'">
+<div id="sold-body" style="margin-left: 20px;margin-right: 20px;margin-top: 20px">
     <div id="sold-inner-body">
-        {% for p in sold_products %}
-            <div class="product">
-                <div class="p_logo_div">
-                    <img class="p_logo" src="../static/media/product.png">
+        {% if sold_products %}
+            {% for p in sold_products %}
+                <div class="product">
+                    <div class="p_logo_div">
+                        <img class="p_logo" src="../static/media/product.png">
+                    </div>
+                    <div class="p_price">
+                        <div class="p_price_elements">{{ p.name }}</div>
+                        <div class="p_price_elements">{{ p.price }}</div>
+                        <div class="p_price_elements">{{ p.customer.name }}</div>
+                        <div class="p_price_elements">{{ p.purchase_date }}</div>
+                    </div>
                 </div>
-                <div class="p_price">
-                    <div class="p_price_elements">{{ p.name }}</div>
-                    <div class="p_price_elements">{{ p.price }}</div>
-                </div>
-            </div>
-            </div>
-        {% endfor %}
-</div>
+            {% endfor %}
+        {% else %}
+            <p>
+                <h3>
+                هیچ کالایی فروخته نشده است.
+                </h3>
+            </p>
+        {% endif %}
+
+
+    </div>
 </div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 .product {
-    height: 200px;
+    height: 210px;
     width: 10%;
     border: 20px;
     padding: 10px;
@@ -18,7 +18,7 @@
 }
 
 .p_price_elements {
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 .p_logo {

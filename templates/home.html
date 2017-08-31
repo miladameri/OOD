@@ -7,17 +7,28 @@
     <script type="text/javascript" src={% static "js/home1.js" %}></script>
     <meta charset="UTF-8">
     <title>Home Page</title>
-
 </head>
+<header style="text-align: right; margin-right: 50px;margin-left: 50px;">
+    <nav>
+        <div style="display: inline-block">
+            <a id="sold_page_link" href="{% url 'sold' %}">
+                <h2 style="margin-right: 20px">لیست اقلام فروخته شده</h2>
+            </a>
+        </div>
+        <div style="display: inline-block">
+            <h2 style="margin-right: 80px">صفحه اصلی</h2>
+        </div>
+        <div style="display: inline-block;float: left;text-align: left">
+            <form id="product_search" action={% url "home" %} method="get">
+                <input id="search_input" type="text" name="product_search" placeholder="Search...">
+                <input type="submit" style="display: none">
+            </form>
+        </div>
+    </nav>
+</header>
 <body style="background-image:url('{% static "media/background.jpg" %}');padding: 20px;font-family: 'B Nazanin'">
-<div id="header">
-    <form id="product_search" action={% url "home" %} method="get">
-        <input id="search_input" type="text" name="product_search" placeholder="Search...">
-        <input type="submit" style="display: none">
-    </form>
-</div>
 <div>
-    <div id="body1">
+    <div id="body1" style="margin-left: 20px;margin-right: 20px;margin-top: 20px">
         {% if product_search_result %}
             {% for p in product_search_result %}
                 <div class="product">
