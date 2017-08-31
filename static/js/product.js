@@ -54,6 +54,7 @@ function send_comment() {
 
 function send_rate() {
     console.log("send rate called");
+    console.log("hereee");
     $.ajax({
         url: $('#rate_url').text(),
         type: 'post',
