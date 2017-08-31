@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +24,8 @@
                     <div class="p_price">
                         <div class="p_price_elements">{{ p.name }}</div>
                         <div class="p_price_elements">{{ p.price }}</div>
-                        <div class="p_price_elements">{{ p.customer.name }}</div>
-                        <div class="p_price_elements">{{ p.purchase_date }}</div>
+                        <div class="p_price_elements">{{ p.customer_name }}</div>
+                        <div class="p_price_elements">{{ p.date }}</div>
                     </div>
                 </div>
             {% endfor %}

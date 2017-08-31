@@ -31,7 +31,7 @@ class Products(View):
 
 class Buy(View):
     def post(self, request, id):
-        OrderCatalogue.create(id, request.POST['name'], request.POST['address'], request.POST['date'])
+        OrderCatalogue.create(id, 'miladameri', request.POST['address'], request.POST['date'])
         print(request.POST['date'])
         return redirect(to='home')
 
@@ -65,6 +65,11 @@ class Rates(View):
         rate.save()
 
 
+class Sold(View):
+    def get(self, request):
+        return render(request, 'sold.html', context={'sold_products': PCatalogue.sold_list()})
+
+
 class PCatalogue:
 
     @staticmethod
@@ -82,7 +87,6 @@ class PCatalogue:
 
     @staticmethod
     def list():
-        print('heerreee')
         list = []
         products = Product.objects.all()
         for item in products:
@@ -90,12 +94,22 @@ class PCatalogue:
             list.append(i)
         return list
 
+    @staticmethod
+    def sold_list():
+        sold_products = []
+        orders = Order.objects.all()
+        for item in orders:
+            i = {'customer_name': item.customer.get_full_name(), 'name': item.product.name, 'price': item.product.price, 'date':item.ttr}
+            sold_products.append(i)
+        return sold_products
+
+
 
 class OrderCatalogue:
     @staticmethod
-    def create(id, address, date):
+    def create(id, name, address, date):
         product = Product.objects.get(id=id)
-        customer = Customer.objects.get(username='miladameri')
+        customer = Customer.objects.get(username=name)
         order = Order.objects.create(product=product,customer=customer,address=address,ttr=date)
         order.save()
         # return list
