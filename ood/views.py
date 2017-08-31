@@ -10,6 +10,7 @@ from django.conf import settings
 
 class Home(View):
     def get(self, request):
+        print('im in home')
         try:
             s = request.GET["product_search"]
             return render(request,'home.html', context={'product_search_result':PCatalogue.search(s)})
@@ -58,7 +59,6 @@ class Rates(View):
 
     @staticmethod
     def create(pid, rate):
-        print('in rates')
         product = Product.objects.get(id=pid)
         customer = Customer.objects.get(username='miladameri')
         rate = Rating.objects.create(product=product, customer=customer, rate=rate)
@@ -93,7 +93,7 @@ class PCatalogue:
 
 class OrderCatalogue:
     @staticmethod
-    def create(id, name, address, date):
+    def create(id, address, date):
         product = Product.objects.get(id=id)
         customer = Customer.objects.get(username='miladameri')
         order = Order.objects.create(product=product,customer=customer,address=address,ttr=date)

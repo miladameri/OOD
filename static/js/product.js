@@ -53,13 +53,11 @@ function send_comment() {
 }
 
 function send_rate() {
-    console.log("send rate called");
-    console.log("hereee");
     $.ajax({
         url: $('#rate_url').text(),
         type: 'post',
         data: {
-            rate: $('#rate_input').val(),
+            rate: $('#rate_input').text(),
             id: $('#p_id').text()
         },
         success: function (data) {
