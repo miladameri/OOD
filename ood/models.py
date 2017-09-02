@@ -19,12 +19,6 @@ class Customer(MyUser):
         verbose_name = 'Customer'
 
 
-class Admin(MyUser):
-    pass
-    class Meta:
-        verbose_name = 'Admin'
-
-
 class Product(models.Model):
     is_new = models.BooleanField()
     name = models.CharField(max_length=255)

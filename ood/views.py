@@ -51,9 +51,6 @@ class Comments(View):
 
 class Rates(View):
     def post(self, request):
-        print('hi')
-        print(request.POST)
-        print()
         self.create(request.POST['id'], request.POST['rate'])
         return HttpResponse('done')
 
